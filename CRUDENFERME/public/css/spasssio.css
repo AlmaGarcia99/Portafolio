@@ -1,0 +1,292 @@
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+	.ejercicio{
+		display: flex;
+		width: 100px;
+		height: 100px;
+		background-color: #3bef2b;
+		-moz-border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    border-radius: 50%;
+	    margin: auto;
+	}
+
+	#ejercicio-2{
+		display: none;
+	}
+
+	.ejercicio img{
+		padding-left: 1rem;
+	}
+
+
+	.ejercicio-bloqueado{
+		display: flex;
+		margin-top: 5rem;
+		width: 100px;
+		height: 100px;
+		background-color: gray;
+		-moz-border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    border-radius: 50%;
+	    margin:auto;
+	}
+	.ejercicio-bloqueado p{
+		margin: auto;
+		font-size: 2rem;
+		color:white;
+	}
+
+	.divisor{
+		margin-top: 1rem;
+	}
+
+	.titulo-ejercicio{
+		text-align:center;
+		font-size: 2rem;
+	}
+
+	.titulo h3{
+		margin-top: 10px;
+		text-align:center;
+		border:1px dotted #fff; 
+		padding:8px;
+	}
+
+	.contenedor{
+		margin-top: 10px;
+		width: 100%;
+		height: auto;
+		background-color: #fff;
+		border-radius: 5px 5px 5px 5px;
+		margin-bottom: 1rem;
+	}
+
+	.cabecera{
+	 	height: 46px;
+	}
+
+	.cabecera p{
+		text-align:center;
+		font-size: 28px;
+
+	}
+
+	.cuerpo{
+		height: 55vh;
+	}
+
+	.cuerpo img{
+		width: 100%;
+	  	max-width: 500px;
+	  	display: flex;
+		margin: auto;
+	}
+
+	.instrucciones{
+		background-color: rgb(36,207,244);
+		border-radius: 4px 4px 0px 0px;
+		margin-top: -55px;
+		box-shadow: 0px 0px 5px 0px gray;
+	}
+
+	.instrucciones p{
+		text-align: center;
+		font-size: 16px;
+		padding: 2px 6px 2px 6px;
+		color: white;
+
+	}
+	.timer{
+		overflow:hidden;
+        text-align: center;
+        margin:auto;
+	}
+
+	.buttons{
+		overflow:hidden;
+        text-align: center;
+        margin:auto;
+        height: 25px;
+	}
+
+	.caja{
+		display:inline-table;
+        height:100px;
+        width:100px;
+        margin:auto;
+	}
+
+	.btn-flotante {
+		font-size: 14px;
+		padding: 12px 20px;
+		bottom: 20px;
+		right: 20px;
+	}
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+	.ejercicio{
+		display: flex;
+		width: 100px;
+		height: 100px;
+		background-color: #3bef2b;
+		-moz-border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    border-radius: 50%;
+	    margin: auto;
+	}
+
+	.ejercicio img{
+		padding-left: 1rem;
+	}
+
+
+	.ejercicio-bloqueado{
+		display: flex;
+		margin-top: 5rem;
+		width: 100px;
+		height: 100px;
+		background-color: gray;
+		-moz-border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    border-radius: 50%;
+	    margin:auto;
+	}
+	.ejercicio-bloqueado p{
+		margin: auto;
+		font-size: 2rem;
+		color:white;
+	}
+
+	.divisor{
+		margin-top: 2rem;
+	}
+	.titulo-ejercicio{
+		text-align:center;
+		font-size: 2rem;
+	}
+
+	.titulo h3{
+		margin-top: 10px;
+		text-align:center;
+		border:1px dotted #fff; 
+		padding:8px;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+	.ejercicio{
+		display: flex;
+		width: 130px;
+		height: 130px;
+		background-color: #3bef2b;
+		-moz-border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    border-radius: 50%;
+	    margin: auto;
+	}
+
+	.ejercicio img{
+		padding-left: 1rem;
+	}
+
+
+	.ejercicio-bloqueado{
+		display: flex;
+		margin-top: 2rem;
+		width: 130px;
+		height: 130px;
+		background-color: gray;
+		-moz-border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    border-radius: 50%;
+	    margin:auto;
+	}
+	.ejercicio-bloqueado p{
+		margin: auto;
+		font-size: 2rem;
+		color:white;
+	}
+
+	.divisor{
+		margin-top: 2.5rem;
+	}
+
+	.titulo-ejercicio{
+		text-align:center;
+		font-size: 2rem;
+	}
+
+	.titulo h3{
+		margin-top: 10px;
+		text-align:center;
+		border:1px dotted #fff; 
+		padding:8px;
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	.ejercicio{
+		display: flex;
+		width: 230px;
+		height: 230px;
+		background-color: #3bef2b;
+		-moz-border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    border-radius: 50%;
+	}
+	
+	#ejercicio-2{
+		display: none;
+	}
+
+	.ejercicio img{
+		padding-left: 1rem;
+	}
+
+
+	.ejercicio-bloqueado{
+		display: flex;
+		margin-top: 2rem;
+		width: 230px;
+		height: 230px;
+		background-color: gray;
+		-moz-border-radius: 50%;
+	    -webkit-border-radius: 50%;
+	    border-radius: 50%;
+	}
+	.ejercicio-bloqueado p{
+		margin: auto;
+		font-size: 2rem;
+		color:white;
+	}
+
+	.divisor{
+		margin-top: 3rem;
+	}
+
+	.titulo-ejercicio{
+		text-align:center;
+		font-size: 2rem;
+	}
+
+	.titulo h3{
+		margin-top: 10px;
+		text-align:center;
+		border:1px dotted #fff; 
+		padding:8px;
+	}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
+
+
