@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Tip;
+
 class HomeController extends Controller
 {
     /**
@@ -25,7 +27,8 @@ class HomeController extends Controller
     {
         $request->user()->authorizeRoles(['user', 'admin']);
         if($request->user()->hasRole('user')){
-            return view('intUsers.index');
+            $tips = Tip::where('baja',0)->get();
+            return view('intUsers.dashboard', compact('tips'));
         }elseif($request->user()->hasRole('admin')){
             return view('home');
         }

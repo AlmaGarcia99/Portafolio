@@ -32,16 +32,15 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{$clasificacion->clasifica_nombre}}" readonly="">
+                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{$clasificacion->GRUPO_NOMBRE}}" readonly="">
                   </div>
                  <div class="form-group">
                     <label for="exampleInputEmail1">Estatus</label>
-                    <input type="text" class="form-control" id="estatus" name="estatus" value="{{$clasificacion->clasifica_estatus}}" readonly="">
+                    <input type="text" class="form-control" id="estatus" name="estatus" value="{{$clasificacion->GRUPO_ESTATUS}}" readonly="">
                   </div>
                 <!-- /.card-body -->
-
                 <div class="card-footer">
-                  <a href="/clasificaciones/{{$clasificacion->clasifica_id}}/edit"><button type="submit" class="btn btn-primary btn-block">Editar</button></a>
+                  <a href="/clasificaciones/{{$clasificacion->GRUPO_ID}}/edit"><button type="submit" class="btn btn-primary btn-block">Editar</button></a>
                 </div>
             </div>
             <!-- /.card -->

@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 
 class ClasificaEController extends Controller
 {
-    
+
     /**
      * Display a datatable of the resource
      *
@@ -26,9 +26,9 @@ class ClasificaEController extends Controller
                 ->addColumn('delete','intAdmin.intClasificaE.botones.delete')
                 ->addColumn('show','intAdmin.intClasificaE.botones.show')
                 ->rawColumns(['edit','delete','show'])
-                ->toJson();  
+                ->toJson();
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -59,7 +59,7 @@ class ClasificaEController extends Controller
     public function store(Request $request)
     {
         $clasificae = new Clasificae();
-        $clasificae->CLASIFICA_NOMBRE = $request->input('nombre'); 
+        $clasificae->CLASIFICA_NOMBRE = $request->input('nombre');
         $clasificae->CLASIFICA_DESC = $request->input('descripcion');
         $clasificae->slug=Str::slug($clasificae->CLASIFICA_NOMBRE."-".time());
         $clasificae->baja = 0;
@@ -77,7 +77,7 @@ class ClasificaEController extends Controller
     public function show($slug)
     {
         $clasificae=ClasificaE::where('slug','=', $slug)->firstOrFail();
-        return view('intAdmin.intClasificaE.show',compact('clasificae'));    
+        return view('intAdmin.intClasificaE.show',compact('clasificae'));
     }
 
     /**
@@ -89,7 +89,7 @@ class ClasificaEController extends Controller
     public function edit($slug)
     {
         $clasificae=Clasificae::where('slug','=', $slug)->firstOrFail();
-        return view('intAdmin.intClasificaE.edit',compact('clasificae'));    
+        return view('intAdmin.intClasificaE.edit',compact('clasificae'));
     }
 
     /**
@@ -102,8 +102,8 @@ class ClasificaEController extends Controller
     public function update(Request $request, $slug)
     {
          $clasificae=Clasificae::where('slug','=', $slug)->firstOrFail();
-         
-        $clasificae->CLASIFICA_NOMBRE = $request->input('nombre'); 
+
+        $clasificae->CLASIFICA_NOMBRE = $request->input('nombre');
         $clasificae->CLASIFICA_DESC = $request->input('descripcion');
         $clasificae->baja = 0;
         $clasificae->slug=Str::slug($clasificae->CLASIFICA_NOMBRE."-".time());

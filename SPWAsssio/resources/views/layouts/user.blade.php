@@ -29,11 +29,11 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="#">Inicio</a></li>
-                    <li><a href="vistas/RecordatoriosUsuario.php">Recordatorios</a><i class=""></i></li>
-                    <li><a href="vistas/AjustesUsuario.php">Ajustes</a></li>
-                    <li><a href="vistas/ProgresosUsuario.php">Mi progreso</a></li>
-                    <li><a href="vistas/LogrosUsuario.php">Mis logros</a></li>
+                    <li class="menu-active"><a href="/home">Inicio</a></li>
+                    <li><a href="#">Recordatorios</a><i class=""></i></li>
+                    <li><a href="/misAjustes">Ajustes</a></li>
+                    <li><a href="#">Mi progreso</a></li>
+                    <li><a href="#">Mis logros</a></li>
 
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -51,24 +51,39 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" onclick="AbrirModalEditarContra()" class="btn btn-default btn-flat">Cambiar Contrase&ntilde;a</a>
+                                    <a href="#" onclick="" class="btn btn-default btn-flat">Cambiar Contrase&ntilde;a</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="../controlador/usuario/controlador_cerrar_session.php" class="btn btn-default btn-flat">Salir</a>
+                                    <a class="btn btn-default btn-flat" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                        Salir
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
                                 </div>
                             </li>
                         </ul>
-                    </li>      
-                    <a href="../controlador/usuario/controlador_cerrar_session.php" class="btn btn-default btn-flat">Salir</a>
-                    <a href="#" onclick="AbrirModalEditarContra()" class="btn btn-default btn-flat">Cambiar Contrase&ntilde;a</a>
-                                  <!--<a href=""><img src="img/Face.png"></img></a>-->
+                    </li>
+                    <a class="btn btn-default btn-flat" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        Salir
+                    </a>
+                    <a href="#" onclick="" class="btn btn-default btn-flat">Cambiar Contrase&ntilde;a</a>
                 </ul>
             </nav>
             <!-- #nav-menu-container -->
         </div>
     </header>
-	@yield('content')
+    <div id="app">
+        @yield('content')
+    </div>
     <!-- Required JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{asset('template_user/lib/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('template_user/lib/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('template_user/lib/superfish/hoverIntent.js')}}"></script>
@@ -78,6 +93,8 @@
     <script src="{{asset('template_user/lib/stickyjs/sticky.js')}}"></script>
     <script src="{{asset('template_user/lib/easing/easing.js')}}"></script>
     <script src="{{asset('template_user/js/custom.js')}}"></script>
+    <script src="{{asset('js/controles-generales.js')}}"></script>
+    <script src="{{asset('js/pwa.js')}}"></script>
     <script defer src="{{asset('template_user/Carrusel/main.js')}}"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js'></script>
     @yield('scripts')

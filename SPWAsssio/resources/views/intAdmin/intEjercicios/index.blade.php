@@ -28,9 +28,11 @@
 		                <p>Nuevo Ejercicio</p>
 		              </div>
 		              <div class="icon">
-		                <i class="fa fa-child" aria-hidden="true"></i>
+		                <svg style="width:74px;height:74px" viewBox="0 0 24 24">
+                      <path fill="currentColor" d="M12 5C10.89 5 10 5.89 10 7S10.89 9 12 9 14 8.11 14 7 13.11 5 12 5M22 1V6H20V4H4V6H2V1H4V3H20V1H22M15 11.26V23H13V18H11V23H9V11.26C6.93 10.17 5.5 8 5.5 5.5L5.5 5H7.5L7.5 5.5C7.5 8 9.5 10 12 10S16.5 8 16.5 5.5L16.5 5H18.5L18.5 5.5C18.5 8 17.07 10.17 15 11.26Z" />
+                  </svg>
 		              </div>
-		              <a href="/exercises/create" class="small-box-footer">Click aquí <i class="fas fa-arrow-circle-right"></i></a>
+		              <a href="/exercises/create" class="small-box-footer">Agregar nuevo ejercicio <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
 		            </div>
     			</div>
     			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -41,9 +43,11 @@
 		                <p>Registrados</p>
 		              </div>
 		              <div class="icon">
-		                <i class="ion ion-bag"></i>
+		                <svg style="width:74px;height:74px" viewBox="0 0 24 24">
+                      <path fill="currentColor" d="M12 5C10.89 5 10 5.89 10 7S10.89 9 12 9 14 8.11 14 7 13.11 5 12 5M22 1V6H20V4H4V6H2V1H4V3H20V1H22M15 11.26V23H13V18H11V23H9V11.26C6.93 10.17 5.5 8 5.5 5.5L5.5 5H7.5L7.5 5.5C7.5 8 9.5 10 12 10S16.5 8 16.5 5.5L16.5 5H18.5L18.5 5.5C18.5 8 17.07 10.17 15 11.26Z" />
+                  </svg>
 		              </div>
-		              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+		              <a href="#" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
 		            </div>
     			</div>
     		</div>

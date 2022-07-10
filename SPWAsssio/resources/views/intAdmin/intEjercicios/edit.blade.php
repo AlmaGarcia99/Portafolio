@@ -35,30 +35,37 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{$ejercicio->nombre_ejercicio}}">
+                    <input type="text" class="form-control" required id="nombre" name="nombre" value="{{$ejercicio->nombre_ejercicio}}">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Descripción</label>
-                    <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="form-control">{{$ejercicio->descripcion_ejercicio}}</textarea>
+                    <textarea name="descripcion" id="descripcion" required cols="30" rows="10" class="form-control">{{$ejercicio->descripcion_ejercicio}}</textarea>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">GIF</label>
                     <hr>
                     <img src="/imgejercicios/{{$ejercicio->imagen_ejercicio}}" alt="" class="img-fluid mx-auto">
                   </div>
-                </div>
                   <div class="form-group">
                     <label for="exampleInputFile">GIF</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="gif">
+                        <input type="file" accept="image/gif" value="/imgejercicios/{{$ejercicio->imagen_ejercicio}}" class="custom-file-input" id="exampleInputFile" name="gif">
                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                       </div>
                     </div>
                   </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Clasificacion</label>
+                    <select class="custom-select my-1 mr-sm-2" id="grupo" name="id_clasificacion">
+                      <option value="{{$ejercicio->CLASIFICA_ID}}">Conservar o editar...</option>
+                      @foreach($clasificaciones as $clas)
+                        <option value="{{$clas->CLASIFICA_ID}}">{{$clas->CLASIFICA_NOMBRE}}</option>
+                      @endforeach
+                    </select>
+                  </div>
                 </div>
                 <!-- /.card-body -->
-
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary btn-block">Registrar</button>
                 </div>

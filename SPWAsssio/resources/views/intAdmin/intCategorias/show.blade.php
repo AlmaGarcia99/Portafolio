@@ -36,7 +36,7 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Descripción</label>
-                    <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="form-control" readonly="">{{$categoria->descripcion_categoria}}</textarea>
+                    <textarea name="descripcion" type="text" id="descripcion" cols="30" rows="10" class="form-control" readonly="">{{$categoria->descripcion_categoria}}</textarea>
                   </div>
                 </div>
                 <!-- /.card-body -->

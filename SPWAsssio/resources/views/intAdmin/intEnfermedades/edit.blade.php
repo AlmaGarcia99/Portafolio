@@ -36,17 +36,23 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nombre</label>
-                    <input type="text" class="form-control" id="enferme_nombre" name="enferme_nombre" value="{{$enfermedad->enferme_nombre}}">
+                    <input type="text" class="form-control" required id="nombre" name="nombre" value="{{$enfermedad->nombre}}">
+                  </div>
+
+               <div class="form-group">
+                    <label for="exampleInputEmail1">Selecciona estatus</label>
+                     <select class="form-control" id="estatus" required name="estatus" value="{{$enfermedad->status}}">
+                 <option value="ACTIVO">ACTIVO</option>
+                <option value="DESACTIVADO" >DESACTIVADO</option>
+
+                 </select>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Estatus</label>
-                    <input type="text" class="form-control" id="enferme_estatus" name="enferme_estatus" value="{{$enfermedad->enferme_estatus}}">
-                  </div>
-                    </div>
+                      <label for="exampleInputPassword1">Observaciones</label>
+                      <textarea id="" cols="30" rows="10" class="form-control" name="observaciones"></textarea>
                   </div>
                 </div>
                 <!-- /.card-body -->
-
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary btn-block">Registrar</button>
                 </div>

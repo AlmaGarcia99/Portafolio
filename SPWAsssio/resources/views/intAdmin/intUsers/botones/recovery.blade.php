@@ -1,0 +1,1 @@
+<a href="" class="button btn btn-success" data-id="{{$slug}}"><i class="fa fa-undo" aria-hidden="true"></i></a>

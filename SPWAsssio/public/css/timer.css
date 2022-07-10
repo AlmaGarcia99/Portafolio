@@ -1,0 +1,55 @@
+.contenedor{
+	margin-top: 10px;
+	width: 100%;
+	height: auto;
+	background-color: yellow;
+	border-radius: 5px 5px 5px 5px;
+	margin-bottom: 1rem;
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+	justify-content: center;
+
+}
+
+.child{
+	width: 400px;
+	flex-grow: 1;
+}
+
+.child-header{
+	width: 100%;
+	text-align:center;
+}
+.child h1{
+	text-align:center;
+	font-size: 9em;
+	color: black;
+}
+
+.child h2{
+	text-align:center;
+	color: black;
+}
+
+.child img{
+	max-width:100%;
+}
+.child-footer{
+	width: 400px;
+	background-color: black;
+	text-align:center;
+	font-size: 6em;
+	color: white;
+	border-radius: 5px 5px 5px 5px;
+}
+.end{
+	width: 100%;
+	text-align:center;
+}
+
+.end h2{
+	flex-grow: 1;
+	font-size: 4em;
+	color: black;
+}

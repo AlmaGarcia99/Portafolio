@@ -1,0 +1,1 @@
+<button class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModalCenter" data-set="{{$observaciones}}"><i class="fa fa-eye" aria-hidden="true"></i></button>

@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Ejercicio;
-use Illuminate\Support\Str as Str;
 use Alert;
-use Redirect,Response;
-use DataTables;
+use App\ClasificaE;
+use App\Ejercicio;
 use Cache;
+use DataTables;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str as Str;
+use Redirect,Response;
 
 class EjerciciosController extends Controller
 {
-    
+
     /**
      * Display a datatable of the resource
      *
@@ -26,9 +27,9 @@ class EjerciciosController extends Controller
                 ->addColumn('delete','intAdmin.intEjercicios.botones.delete')
                 ->addColumn('show','intAdmin.intEjercicios.botones.show')
                 ->rawColumns(['edit','delete','show'])
-                ->toJson();  
+                ->toJson();
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +48,8 @@ class EjerciciosController extends Controller
      */
     public function create()
     {
-        return view('intAdmin.intEjercicios.create');
+        $clasificaciones = ClasificaE::all();
+        return view('intAdmin.intEjercicios.create',compact('clasificaciones'));
     }
 
     /**
@@ -65,10 +67,11 @@ class EjerciciosController extends Controller
             $file->move(public_path().'/imgejercicios/',$foto);
             $ejercicio->imagen_ejercicio=$foto;
         }
-        $ejercicio->nombre_ejercicio = $request->input('nombre'); 
+        $ejercicio->nombre_ejercicio = $request->input('nombre');
         $ejercicio->descripcion_ejercicio = $request->input('descripcion');
         $ejercicio->slug=Str::slug($ejercicio->nombre_ejercicio."-".time());
         $ejercicio->baja = 0;
+        $ejercicio->CLASIFICA_ID = $request->id_clasificacion;
         $ejercicio->save();
         alert()->success('SPAsssio', 'Ejercicio registrado correctamente');
         return Redirect::to('/exercises');
@@ -83,7 +86,7 @@ class EjerciciosController extends Controller
     public function show($slug)
     {
         $ejercicio=Ejercicio::where('slug','=', $slug)->firstOrFail();
-        return view('intAdmin.intEjercicios.show',compact('ejercicio'));    
+        return view('intAdmin.intEjercicios.show',compact('ejercicio'));
     }
 
     /**
@@ -94,8 +97,9 @@ class EjerciciosController extends Controller
      */
     public function edit($slug)
     {
+        $clasificaciones = ClasificaE::all();
         $ejercicio=Ejercicio::where('slug','=', $slug)->firstOrFail();
-        return view('intAdmin.intEjercicios.edit',compact('ejercicio'));    
+        return view('intAdmin.intEjercicios.edit',compact('ejercicio','clasificaciones'));
     }
 
     /**
@@ -116,10 +120,11 @@ class EjerciciosController extends Controller
             $file->move(public_path().'/imgejercicios/',$foto);
             $ejercicio->imagen_ejercicio=$foto;
         }
-        $ejercicio->nombre_ejercicio = $request->input('nombre'); 
+        $ejercicio->nombre_ejercicio = $request->input('nombre');
         $ejercicio->descripcion_ejercicio = $request->input('descripcion');
         $ejercicio->baja = 0;
         $ejercicio->slug=Str::slug($ejercicio->nombre_ejercicio."-".time());
+        $ejercicio->CLASIFICA_ID = $request->id_clasificacion;
         $ejercicio->save();
         alert()->success('SPAsssio', 'Ejercicio registrado correctamente');
         return Redirect::to('/exercises');

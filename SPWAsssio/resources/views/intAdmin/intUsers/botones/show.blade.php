@@ -1,0 +1,1 @@
+<a href="/users/{{$slug}}"><button class="btn btn-success btn-sm"><i class="fa fa-info-circle" aria-hidden="true"></i></button></a>

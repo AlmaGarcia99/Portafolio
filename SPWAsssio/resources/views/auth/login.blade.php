@@ -1,99 +1,77 @@
-@extends('layouts.login')
+@extends('layouts.default')
 
 @section('content')
-<div class="limiter">
-    <div class="container-login100" style="background-image: url('login_estilos/images/bg-01.jpg');">
-        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-            <center>
-                <img src="login_estilos/images/logo.png" width="250" height="120">
-            </center>
-            <center>El mejor Spasssio para ejercitarte ... tu hogar</center>
-            <span class="login100-form-title p-b-49">
-                Bienvenidos
-            </span>
-            <div class="card">
-                <div class="card-body login-card-body" style="background-image: url('login_estilos/images/bg-01.jpg');">
-                    <p class="login-box-msg">Formulario para Iniciar Sesion clientes</p>
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-                        <div class="input-group mb-3">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
+    <!--wrapper-->
+    <div class="wrapper">
+        <div class="section-authentication-signin d-flex align-items-center justify-content-center my-5 my-lg-0">
+            <div class="container-fluid">
+                <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
+                    <div class="col mx-auto">
+                        <div class="mb-4 text-center">
+                            <img src="{{asset('img/logo.png')}}" width="280" alt="" />
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="border p-4 rounded">
+                                    <div class="text-center">
+                                        <h3 class="">¡Hola, Bienvenid@!</h3>
+                                        <p>El mejor spasssio para ejercitarte en el hogar.</p>
+                                    </div>
+                                    <div class="login-separater text-center mb-4"> <span>- - -</span>
+                                        <hr/>
+                                    </div>
+                                    <div class="form-body">
+                                        <form method="POST" action="{{ route('login') }}" class="row g-3">
+                                            @csrf
+                                            <div class="col-12">
+                                                <label for="inputEmailAddress" class="form-label">Dirección de correo electrónico</label>
+                                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                            </div>
+                                            @error('email')
+                                                <div class="col-12">
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                </div>
+                                            @enderror
+                                            <div class="col-12">
+                                                <label for="inputChoosePassword" class="form-label">Introducir la contraseña</label>
+                                                <div class="input-group" id="show_hide_password">
+                                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"> <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+                                                </div>
+                                            </div>
+                                            @error('password')
+                                                <div class="col-12">
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                </div>
+                                            @enderror
+                                            <div class="col-md-6">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                                    <label class="form-check-label" for="flexSwitchCheckChecked">Recuérdame</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 text-end"> <a href="{{ route('password.request') }}">¿Has olvidado tu contraseña?</a>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="d-grid">
+                                                    <button type="submit" class="btn btn-light"><i class="bx bxs-lock-open"></i>Ingresar</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="input-group mb-3">
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-lock"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-right p-t-8 p-b-31">
-                            <a href="#" onclick="AbrirModalRestablecer()">
-                                Olvidaste la contrase&ntilde;a?
-                            </a>
-                        </div>
-                        <div class="row">
-                            <!-- /.col -->
-
-                            <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
-
-                            <!-- /.col -->
-                        </div>
-                        <center>¿A&uacute;n no te has registrado?</center>
-
-                        <center>!Que esperas para tener un mejor estilo de vida¡</center><br>
-                       
-                        <center>
-                       <a href="https://api.whatsapp.com/send?phone=5215512583151&text=Hola%20Buen%20día" class="btn alert-success">Contactanos para tu registro</a>
-                        </center>
-                    </form>
-                </div>
-
-
-
-                <div id="dropDownSelect1"></div>
-
-
-                <div class="modal fade" id="modal_restablecer_contra" role="dialog">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title"><b>Restablecer contrase&ntilde;a</b></h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body" style="text-align:left;">
-                                <div class="col-lg-12">
-                                    <label for=""><b>Ingrese email</b></label>
-                                    <input type="text" class="form-control" id="txt_email" placeholder="Ingrese Email"><br>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-primary" onclick="Restablecer_Contra()"><i class="fa fa-check"><b>&nbsp;Enviar</b></i></button>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"><b>&nbsp;Cerrar</b></i></button>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!--end row-->
             </div>
         </div>
     </div>
-</div>
+    <!--end wrapper-->
 <!--
 <div class="container">
     <div class="row justify-content-center">

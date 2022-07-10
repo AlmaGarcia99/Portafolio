@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Dieta;
-use Illuminate\Support\Str as Str;
 use Alert;
-use Redirect,Response;
-use DataTables;
+use App\Dieta;
+use App\User;
 use Cache;
+use DataTables;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str as Str;
+use Redirect,Response;
 
 class DietasController extends Controller
 {
@@ -20,13 +21,13 @@ class DietasController extends Controller
 
 public function datatable()
     {
-        $dietas=Dieta::where('baja','=',0);
+        $dietas=Dieta::where('baja','=',0)->get();
         return DataTables::of($dietas)
                 ->addColumn('edit','intAdmin.intDietas.botones.edit')
                 ->addColumn('delete','intAdmin.intDietas.botones.delete')
                 ->addColumn('show','intAdmin.intDietas.botones.show')
                 ->rawColumns(['edit','delete','show'])
-                ->toJson();  
+                ->toJson();
     }
 
  public function index()
@@ -42,7 +43,8 @@ public function datatable()
 
      public function create()
     {
-        return view('intAdmin.intDietas.create');
+        $users = User::all();
+        return view('intAdmin.intDietas.create',compact('users'));
         //
     }
 
@@ -56,9 +58,10 @@ public function datatable()
       public function store(Request $request)
     {
         $dieta = new Dieta();
-        $dieta->titu_dieta = $request->input('nombre'); 
+        $dieta->titu_dieta = $request->input('nombre');
         $dieta->descrip_dieta = $request->input('descripcion');
         $dieta->baja = 0;
+        $dieta->slug = Str::slug($dieta->titu_dieta."-".time());
         $dieta->save();
         alert()->success('SPAsssio', 'Dieta registrada correctamente');
         return Redirect::to('/diets');
@@ -73,7 +76,7 @@ public function datatable()
 public function show($slug)
      {
         $dieta=Dieta::where('slug','=',$slug)->firstOrFail();
-        return view('intAdmin.intDietas.show',compact('dieta'));    
+        return view('intAdmin.intDietas.show',compact('dieta'));
     }
 
 /**
@@ -85,7 +88,7 @@ public function show($slug)
 public function edit($slug)
     {
         $dieta=Dieta::where('slug','=',$slug)->firstOrFail();
-        return view('intAdmin.intDietas.edit',compact('dieta'));    
+        return view('intAdmin.intDietas.edit',compact('dieta'));
     }
 /**
      * Update the specified resource in storage.
@@ -99,9 +102,10 @@ public function edit($slug)
  public function update(Request $request, $slug)
     {
         $dieta=Dieta::where('slug','=',$slug)->firstOrFail();
-        $dieta->titu_dieta = $request->input('nombre'); 
+        $dieta->titu_dieta = $request->input('nombre');
         $dieta->descrip_dieta= $request->input('descripcion');
         $dieta->baja = 0;
+        $dieta->slug = Str::slug($dieta->titu_dieta."-".time());
         $dieta->save();
         alert()->success('SPAsssio', 'Dieta registrada correctamente');
         return Redirect::to('/diets');

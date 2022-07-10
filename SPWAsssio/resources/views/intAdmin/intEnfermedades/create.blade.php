@@ -29,18 +29,27 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/enfermedades" method="POST" enctype="multipart/form-data">
+              <form id="registerEnf" name="f4" action="/enfermedades" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nombre</label>
-                    <input type="text" class="form-control" id="enferme_nombre" name="enferme_nombre" placeholder="Escriba nombre de la enfermedad">
+                    <input type="text" class="form-control" required id="nombre" name="nombre" placeholder="Escriba nombre de la enfermedad">
+                  </div>
+
+                 <div class="form-group">
+                    <label for="exampleInputEmail1">Selecciona estatus</label>
+                     <select class="form-control" id="estatus" required name="estatus">
+                 <option value="ACTIVO">ACTIVO</option>
+                <option value="DESACTIVADO" >DESACTIVADO</option>
+
+                 </select>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Estatus</label>
-                    <input type="text" class="form-control" id="enferme_estatus" name="enferme_estatus" placeholder="Escriba nombre del Estatus de la enfermedad">
+                      <label for="exampleInputPassword1">Observaciones</label>
+                      <textarea id="" cols="30" rows="10" class="form-control" name="observaciones"></textarea>
                   </div>
-                 
+
                 <!-- /.card-body -->
 
                 <div class="card-footer">
@@ -53,4 +62,45 @@
       </div>
     </div>
   </section>
+@endsection
+
+@section('scripts')
+<script src="{{asset('validators/jquery-1.11.1.js')}}"></script>
+<script src="{{asset('validators/jquery.validate.min.js')}}"></script>
+<script type="text/javascript">
+    $( document ).ready( function () {
+      $( "#registerEnf" ).validate( {
+        rules: {
+          nombre: {
+            required: true,
+            minlength: 4
+          },
+
+        },
+        messages: {
+
+          nombre: "Por favor, introduce un nombre de enfermedad válido de al menos 4 carácteres"
+
+        },
+        errorElement: "em",
+        errorPlacement: function ( error, element ) {
+          // Add the `invalid-feedback` class to the error element
+          error.addClass( "invalid-feedback" );
+
+          if ( element.prop( "type" ) === "checkbox" ) {
+            error.insertAfter( element.next( "label" ) );
+          } else {
+            error.insertAfter( element );
+          }
+        },
+        highlight: function ( element, errorClass, validClass ) {
+          $( element ).addClass( "is-invalid" ).removeClass( "is-valid" );
+        },
+        unhighlight: function (element, errorClass, validClass) {
+          $( element ).addClass( "is-valid" ).removeClass( "is-invalid" );
+        }
+      } );
+
+    } );
+  </script>
 @endsection

@@ -21,33 +21,43 @@
   <section class="content">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-9 mx-auto">
+        <div class="col-xs-12 col-sm-12 col-md-12 mx-auto">
           <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Registro de rutina</h3>
+                <h3 class="card-title">Rutina: {{$rutina->name_rutina}}</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
                 <div class="card-body">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Nombre de rutina</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{$rutina->name_rutina}}" readonly="">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Instrucción</label>
-                    <textarea name="instruccion" id="instruccion" cols="30" rows="10" class="form-control" readonly="">{{$rutina->instruction_rutina}}</textarea>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputFile">Audio</label>
-                    <hr>
-                    <audio src="/audiorutinas/{{$rutina->audio}}" alt="" class=" mx-auto">
-                  </div>
+                  <p>{{$rutina->instruction_rutina}}</p>
+                  <h3>Ejercicios que componen esta rutina:</h3>
+                  <hr>  
+                  <div class="row">
+                  @foreach($rutina->ejercicios as $ejercicio) 
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+                      <div class="card">  
+                          <div class="card-header"> 
+                              <div class="card-title">  
+                                  {{$ejercicio->nombre_ejercicio}}
+                              </div>
+                          </div>
+                          <div class="card-body"> 
+                              <img src="/imgejercicios/{{$ejercicio->imagen_ejercicio}}" alt="" class="img-fluid">
+                          </div>  
+                      </div>                       
+                    </div>
+                  @endforeach  
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+                      <a href="/routines/{{$rutina->slug}}/edit"><button class="btn btn-outline-primary btn-block">Editar Rutina</button></a>
+                      <hr>
+                      <a href="/ClassifyE" class="nav-link active"><button class="btn btn-outline-secondary btn-block">Editar ejercicios</button></a>
+                    </div>
+                  </div> 
                 </div>
                 <!-- /.card-body -->
-
                 <div class="card-footer">
-                  <a href="/routines/{{$rutina->slug}}/edit"><button type="submit" class="btn btn-primary btn-block">Editar</button></a>
+                  SPAsssio
                 </div>
             </div>
             <!-- /.card -->

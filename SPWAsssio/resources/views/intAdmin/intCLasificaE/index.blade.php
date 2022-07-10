@@ -28,9 +28,9 @@
 		                <p>Nueva Clasificación</p>
 		              </div>
 		              <div class="icon">
-		                <i class="fa fa-child" aria-hidden="true"></i>
+		                <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
 		              </div>
-		              <a href="/ClassifyE/create" class="small-box-footer">Click aquí <i class="fas fa-arrow-circle-right"></i></a>
+		              <a href="/ClassifyE/create" class="small-box-footer">Agregar nueva clasificación <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
 		            </div>
     			</div>
     			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -41,9 +41,9 @@
 		                <p>Registradas</p>
 		              </div>
 		              <div class="icon">
-		                <i class="ion ion-bag"></i>
+		                <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
 		              </div>
-		              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+		              <a href="#" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
 		            </div>
     			</div>
     		</div>

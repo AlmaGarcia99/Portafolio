@@ -35,11 +35,11 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nombre de rutina</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{$rutina->name_rutina}}">
+                    <input type="text" class="form-control" required id="nombre" name="nombre" value="{{$rutina->name_rutina}}">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Instrucción</label>
-                    <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="form-control">{{$rutina->instruction_rutina}}</textarea>
+                    <textarea name="descripcion" id="descripcion" required cols="30" rows="10" class="form-control">{{$rutina->instruction_rutina}}</textarea>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Audio</label>
@@ -51,7 +51,7 @@
                     <label for="exampleInputFile">Audio</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="audio">
+                        <input type="file" accept="audio/*" class="custom-file-input" id="exampleInputFile" name="audio">
                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                       </div>
                     </div>
@@ -60,7 +60,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                  <button type="submit" class="btn btn-primary btn-block">Actuzaliar Datos</button>
                 </div>
               </form>
             </div>

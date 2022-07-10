@@ -19,6 +19,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password',
     ];
+    protected $primaryKey = 'id';
 
     /**
      * The attributes that should be hidden for arrays.
@@ -58,12 +59,12 @@ class User extends Authenticatable
             }
         } else {
             if ($this->hasRole($roles)) {
-                 return true; 
-            }   
+                 return true;
+            }
         }
         return false;
     }
-    
+
     public function hasRole($role)
     {
         if ($this->roles()->where('name', $role)->first()) {
@@ -79,6 +80,20 @@ class User extends Authenticatable
 
     public function enfermedad()
     {
-        return $this->belongsTo(Enfermedad::class);
+        return $this->belongsTo(Enfermedad::class,'enfermedad_id','id');
+    }
+
+    public function grupo()
+    {
+        return $this->belongsTo(Grupo::class,'grupo_id','GRUPO_ID');
+    }
+
+    public function rutinas()
+    {
+        return $this->belongsToMany(Rutina::class,'users_rutinas','id_user','id_rutina');
+    }
+    
+    public function dietas(){
+        return $this->belongsToMany(Dieta::class,'user_dietas','user_id','dieta_id');
     }
 }

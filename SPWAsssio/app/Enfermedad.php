@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Enfermedad extends Model
 {
     protected $table = 'enfermedades';
-    protected $primaryKey = 'enferme_id';
+    protected $primaryKey = 'id';
 }
 

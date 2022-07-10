@@ -1,6 +1,6 @@
 /*==========  Mobile First Method  ==========*/
 
-/* Custom, iPhone Retina */ 
+/* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {
 	.ejercicio{
 		display: flex;
@@ -51,7 +51,7 @@
 	.titulo h3{
 		margin-top: 10px;
 		text-align:center;
-		border:1px dotted #fff; 
+		border:1px dotted #fff;
 		padding:8px;
 	}
 
@@ -127,7 +127,7 @@
 	}
 }
 
-/* Extra Small Devices, Phones */ 
+/* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {
 	.ejercicio{
 		display: flex;
@@ -173,7 +173,7 @@
 	.titulo h3{
 		margin-top: 10px;
 		text-align:center;
-		border:1px dotted #fff; 
+		border:1px dotted #fff;
 		padding:8px;
 	}
 }
@@ -225,7 +225,7 @@
 	.titulo h3{
 		margin-top: 10px;
 		text-align:center;
-		border:1px dotted #fff; 
+		border:1px dotted #fff;
 		padding:8px;
 	}
 }
@@ -241,7 +241,7 @@
 	    -webkit-border-radius: 50%;
 	    border-radius: 50%;
 	}
-	
+
 	#ejercicio-2{
 		display: none;
 	}
@@ -279,7 +279,7 @@
 	.titulo h3{
 		margin-top: 10px;
 		text-align:center;
-		border:1px dotted #fff; 
+		border:1px dotted #fff;
 		padding:8px;
 	}
 }

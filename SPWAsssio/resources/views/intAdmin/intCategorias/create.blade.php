@@ -29,16 +29,16 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/categories" method="POST" enctype="multipart/form-data">
+              <form action="/categories" id="RegisterCategorys" name="f3" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escriba nombre de la categoria">
+                    <input type="text" class="form-control" id="nombre" name="nombre" required placeholder="Escriba nombre de la categoria">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Descripción</label>
-                    <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="form-control"></textarea>
+                    <textarea name="descripcion" type="text" id="descripcion" cols="30" rows="10" required class="form-control"></textarea>
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -53,4 +53,42 @@
       </div>
     </div>
   </section>
+@endsection
+@section('scripts')
+<script src="{{asset('validators/jquery-1.11.1.js')}}"></script>
+<script src="{{asset('validators/jquery.validate.min.js')}}"></script>
+<script type="text/javascript">
+    $( document ).ready( function () {
+      $( "#RegisterCategorys" ).validate( {
+        rules: {
+          nombre: {
+            required: true,
+            minlength: 4
+          },
+
+        },
+        messages: {
+
+          nombre: "Por favor, introduce un nombre de grupo válido de al menos 4 carácteres"
+
+        },
+        errorElement: "em",
+        errorPlacement: function ( error, element ) {
+          // Add the `invalid-feedback` class to the error element
+          error.addClass( "invalid-feedback" );
+          if ( element.prop( "type" ) === "checkbox" ) {
+            error.insertAfter( element.next( "label" ) );
+          } else {
+            error.insertAfter( element );
+          }
+        },
+        highlight: function ( element, errorClass, validClass ) {
+          $( element ).addClass( "is-invalid" ).removeClass( "is-valid" );
+        },
+        unhighlight: function (element, errorClass, validClass) {
+          $( element ).addClass( "is-valid" ).removeClass( "is-invalid" );
+        }
+      } );
+    } );
+  </script>
 @endsection

@@ -35,11 +35,11 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{$categoria->catego_nombre}}">
+                    <input type="text" class="form-control" id="nombre" name="nombre" required value="{{$categoria->catego_nombre}}">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Descripción</label>
-                    <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="form-control">{{$categoria->descripcion_categoria}}</textarea>
+                    <textarea name="descripcion" id="descripcion" cols="30" rows="10" required class="form-control">{{$categoria->descripcion_categoria}}</textarea>
                   </div>
               
                 </div>

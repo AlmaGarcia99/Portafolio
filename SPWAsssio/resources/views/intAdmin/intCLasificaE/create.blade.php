@@ -29,16 +29,16 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/ClassifyE" method="POST" enctype="multipart/form-data">
+              <form id="registerclas" name="f5" action="/ClassifyE" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escriba nombre de la clasificacion">
+                    <input type="text" class="form-control" id="nombre" required name="nombre" placeholder="Escriba nombre de la clasificacion">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Descripción</label>
-                    <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="form-control"></textarea>
+                    <textarea name="descripcion" id="descripcion" cols="30" required rows="10" class="form-control"></textarea>
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -53,4 +53,47 @@
       </div>
     </div>
   </section>
+@endsection
+@section('scripts')
+<script src="{{asset('validators/jquery-1.11.1.js')}}"></script>
+<script src="{{asset('validators/jquery.validate.min.js')}}"></script>
+<script type="text/javascript">
+    $( document ).ready( function () {
+      $( "#registerclas" ).validate( {
+        rules: {
+          nombre: {
+            required: true,
+            minlength: 4
+          },
+          descripcion: {
+            required: true,
+            minlength: 10
+          },
+
+        },
+        messages: {
+
+          nombre: "Por favor, introduce un nombre de clasificación válida de al menos 4 carácteres",
+          descripcion: "Por favor, introduce una descripción válida de al menos 10 carácteres"
+
+        },
+        errorElement: "em",
+        errorPlacement: function ( error, element ) {
+          // Add the `invalid-feedback` class to the error element
+          error.addClass( "invalid-feedback" );
+          if ( element.prop( "type" ) === "checkbox" ) {
+            error.insertAfter( element.next( "label" ) );
+          } else {
+            error.insertAfter( element );
+          }
+        },
+        highlight: function ( element, errorClass, validClass ) {
+          $( element ).addClass( "is-invalid" ).removeClass( "is-valid" );
+        },
+        unhighlight: function (element, errorClass, validClass) {
+          $( element ).addClass( "is-valid" ).removeClass( "is-invalid" );
+        }
+      } );
+    } );
+  </script>
 @endsection

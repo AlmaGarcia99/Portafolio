@@ -11,7 +11,7 @@
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item"><a href="/enfermedades">Listado de enfermedades</a></li>
-            <li class="breadcrumb-item active">Mostrar enfermedad {{$enfermedad->enferme_nombre}}</li>
+            <li class="breadcrumb-item active">Mostrar enfermedad {{$enfermedad->nombre}}</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -32,11 +32,11 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nombre</label>
-                    <input type="text" class="form-control" id="enferme_nombre" name="enferme_nombre" value="{{$enfermedad->enferme_nombre}}" readonly="">
+                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{$enfermedad->nombre}}" readonly="">
                   </div>
                  <div class="form-group">
                     <label for="exampleInputEmail1">Estatus</label>
-                    <input type="text" class="form-control" id="enferme_estatus" name="enferme_estatus" value="{{$enfermedad->enferme_estatus}}" readonly="">
+                    <input type="text" class="form-control" id="estatus" name="estatus" value="{{$enfermedad->status}}" readonly="">
                   </div>
                 <!-- /.card-body -->
 

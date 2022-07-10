@@ -6,13 +6,13 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Clasificación</h1>
+          <h1 class="m-0">Grupos de trabajo</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item"><a href="/clasificaciones">Listado de clasificaciones</a></li>
-            <li class="breadcrumb-item active">Registrar clasificaciones</li>
+            <li class="breadcrumb-item"><a href="/clasificaciones">Listado de grupos de trabajo</a></li>
+            <li class="breadcrumb-item active">Registrar grupo</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -26,27 +26,36 @@
           <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Editar clasificaciones</h3>
+                <h3 class="card-title">Editar grupos</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/clasificaciones/{{$clasificacion->clasifica_id}}" method="POST" enctype="multipart/form-data">
+              <form action="/clasificaciones/{{$clasificacion->GRUPO_ID}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{$clasificacion->clasifica_nombre}}">
+                    <input type="text" class="form-control" id="nombre" required name="nombre" value="{{$clasificacion->GRUPO_NOMBRE}}">
                   </div>
+
+
+                   <div class="form-group">
+                    <label for="exampleInputEmail1">Selecciona estatus</label>
+                     <select class="form-control" id="estatus" required name="estatus" value="{{$clasificacion->GRUPO_ESTATUS}}">
+                 <option value="ACTIVO">ACTIVO</option>
+                <option value="DESACTIVADO" >DESACTIVADO</option>
+
+                 </select>
+                  </div>
+
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Estatus</label>
-                    <input type="text" class="form-control" id="estatus" name="estatus" value="{{$clasificacion->clasifica_estatus}}">
+                      <label for="exampleInputPassword1">Observaciones</label>
+                      <textarea id="" cols="30" rows="10" class="form-control" name="observaciones">{{$clasificacion->observaciones}}</textarea>
                   </div>
-                    </div>
-                  </div>
+
                 </div>
                 <!-- /.card-body -->
-
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary btn-block">Registrar</button>
                 </div>

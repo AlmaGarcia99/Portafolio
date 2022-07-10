@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Rutina;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RutinaUsuario extends Controller
 {
@@ -11,8 +14,22 @@ class RutinaUsuario extends Controller
     	return view('intUsers.rutinas');
     }
 
-    public function rutina()
+    public function rutina($slug)
     {
-    	return view('intUsers.rutina');
+    	$rutina = Rutina::where('slug',$slug)->firstOrFail();
+        return view('intUsers.rutina',compact('rutina'));
+    }
+
+    public function misRutinas()
+    {
+    	$user = Auth::user();
+    	$rutinas = $user->rutinas;
+    	return response()->json($rutinas);
+    }
+    
+    public function evaluacion(Request $request)
+    {
+    	$user = Auth::user();
+    	dd($request);
     }
 }
